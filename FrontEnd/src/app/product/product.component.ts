@@ -1,7 +1,7 @@
+import { Product } from './../model/product';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ImageDetail } from '../image-detail';
-import { Product } from '../product';
+import { ImageDetail } from '../model/image-detail';
 import { UserService } from '../service/user.service';
 
 @Component({

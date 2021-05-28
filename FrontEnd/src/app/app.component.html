@@ -1,7 +1,7 @@
 <div id="app">
-    <app-header></app-header>
+    <app-header *ngIf="!authService.isAdmin()"></app-header>
     <div class="container">
         <router-outlet></router-outlet>
     </div>
-    <app-footer></app-footer>
+    <app-footer *ngIf="!authService.isAdmin()"></app-footer>
 </div>

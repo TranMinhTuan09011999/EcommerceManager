@@ -17,7 +17,7 @@ const routes: Routes = [
   { path: 'product/:name', component: ProductComponent },
   { path: 'productlist', component: ProductlistComponent },
   { path: 'productlist/:name', component: ProductlistComponent },
-  /*{ path: '', redirectTo: 'productlist', pathMatch: 'full' },*/
+  { path: '', redirectTo: 'admin', pathMatch: 'full' },
 ];
 
 @NgModule({

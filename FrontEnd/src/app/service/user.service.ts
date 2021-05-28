@@ -1,10 +1,10 @@
+import { Product } from './../model/product';
+import { Category } from './../model/category';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
-import { Product } from '../product';
 import { catchError, retry } from 'rxjs/operators';
-import { Category } from '../category';
-import { ImageDetail } from '../image-detail';
+import { ImageDetail } from '../model/image-detail';
 
 const API_URL = 'http://localhost:8182/api/user/';
 
