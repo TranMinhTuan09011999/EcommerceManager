@@ -16,6 +16,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AdminComponent } from './admin/admin.component';
 import { AdminModule } from './admin/admin.module';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,8 @@ import { AdminModule } from './admin/admin.module';
     RegisterComponent,
     CheckoutComponent,
     ProductComponent,
-    ProductlistComponent
+    ProductlistComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
@@ -36,6 +39,7 @@ import { AdminModule } from './admin/admin.module';
     HttpClientModule,
     ReactiveFormsModule,
     AdminModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

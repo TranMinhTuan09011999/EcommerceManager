@@ -20,15 +20,20 @@ export class AuthService {
               private tokenStorageService: TokenStorageService) { }
 
   isAdmin() {
-    if (this.tokenStorageService.getUser() != null) {
-      this.user = this.tokenStorageService.getUser();
+    if (this.tokenStorageService.getToken() == '{}' ) {
+      return false;
     }
-    for (let i = 0; i < this.user.roles.length; i++) {
-      if (this.user.roles[i] === "ROLE_ADMIN") {
-        return true;
+    else {
+      if (this.tokenStorageService.getUser() != null) {
+        this.user = this.tokenStorageService.getUser();
       }
+      for (let i = 0; i < this.user.roles.length; i++) {
+        if (this.user.roles[i] === "ROLE_ADMIN") {
+          return true;
+        }
+      }
+      return false;
     }
-    return false;
   }
 
   login(credentials: any): Observable<any> {
