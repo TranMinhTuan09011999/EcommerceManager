@@ -35,6 +35,12 @@ public class ProductController {
         return new ResponseEntity<> (categoryList, HttpStatus.OK);
     }
 
+    @GetMapping("/products")
+    public ResponseEntity<?> getAllProducts() {
+        Iterable<ProductDTO> list = productService.getAllProducts();
+        return new ResponseEntity<>(list, HttpStatus.OK);
+    }
+
     @GetMapping("/category/{categoryName}")
     public ResponseEntity<?> getCategoryName(@PathVariable String categoryName){
         CategoryDTO category = categoryService.getCategoryByName(categoryName);

@@ -1,10 +1,11 @@
+import { Product } from './../model/product';
+import { Category } from './../model/category';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
-import { Product } from '../product';
 import { catchError, retry } from 'rxjs/operators';
-import { Category } from '../category';
-import { ImageDetail } from '../image-detail';
+import { ImageDetail } from '../model/image-detail';
+import { User } from '../model/user';
 
 const API_URL = 'http://localhost:8182/api/user/';
 
@@ -30,8 +31,22 @@ export class UserService {
     return this.http.get(API_URL + 'admin', { responseType: 'text' });
   }*/
 
+  getAllProducts(): Observable<Product[]> {
+    return this.http.get<Product[]>(API_URL + 'products')
+      .pipe(retry(3),
+          catchError(this.handleError));
+  }
+
   getCategory(): Observable<Category[]>{
     return this.http.get<Category[]>(API_URL + 'category')
+                    .pipe(
+                      retry(3),
+                      catchError(this.handleError)
+                    );
+  }
+
+  getCategoryByName(name: string): Observable<Category>{
+    return this.http.get<Category>(API_URL + 'category/' + name)
                     .pipe(
                       retry(3),
                       catchError(this.handleError)
@@ -85,5 +100,12 @@ export class UserService {
                     retry(3),
                     catchError(this.handleError)
                   );
+  }
+
+  getAllUsers(): Observable<User[]> {
+    return this.http.get<User[]>(API_URL + 'get-all')
+                  .pipe(
+                    retry(3),
+                    catchError(this.handleError))
   }
 }

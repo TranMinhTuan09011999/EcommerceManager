@@ -14,7 +14,10 @@ import { ProductComponent } from './product/product.component';
 import { ProductlistComponent } from './productlist/productlist.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-
+import { AdminComponent } from './admin/admin.component';
+import { AdminModule } from './admin/admin.module';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,13 +29,16 @@ import { HttpClientModule } from '@angular/common/http';
     RegisterComponent,
     CheckoutComponent,
     ProductComponent,
-    ProductlistComponent
+    ProductlistComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
+    AdminModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

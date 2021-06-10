@@ -46,7 +46,7 @@ Bootstrap with custom variables
 *,
 *::before,
 *::after {
-  box-sizing: border-box;
+  /* box-sizing: border-box; */
 }
 
 html {

@@ -14,6 +14,7 @@ import java.util.List;
 public interface ProductRepository extends CrudRepository<Product, Long> {
     /*@Query("SELECT a FROM Product a WHERE a.promotion > 0")
     List<Product> findByTop();*/
+    List<Product> findAll();
 
     List<Product> findTop8ByPromotionGreaterThanOrderByPromotion(Integer promotion);
 
