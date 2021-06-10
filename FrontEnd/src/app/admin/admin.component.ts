@@ -41,6 +41,6 @@ export class AdminComponent implements OnInit {
     this.categoryName = <string>categoryName;
     console.log(this.categoryName);
     console.log(categoryName);
-  }
+  } 
 
 }

@@ -1,9 +1,6 @@
 package com.minhtuan.commercemanager.services.ServicesImpl;
 
-import com.minhtuan.commercemanager.controller.ProductController;
 import com.minhtuan.commercemanager.converter.ProductConverter;
-import com.minhtuan.commercemanager.model.Category;
-import com.minhtuan.commercemanager.model.DTO.CategoryDTO;
 import com.minhtuan.commercemanager.model.DTO.ProductDTO;
 import com.minhtuan.commercemanager.model.ImageDetail;
 import com.minhtuan.commercemanager.model.Product;
@@ -27,6 +24,19 @@ public class ProductServiceImpl implements ProductService {
 
     @Autowired
     private ProductConverter productConverter;
+
+    @Override
+    public List<ProductDTO> getAllProducts() {
+        List<Product> list =  productRepository.findAll();
+        List<ProductDTO> listDTO = new ArrayList<>();
+        list.stream().forEach(
+                (s) -> {
+                    ProductDTO dto = productConverter.toDTO(s);
+                    listDTO.add(dto);
+                }
+        );
+        return listDTO;
+    }
 
     @Override
     public List<ProductDTO> getProductPromotion() {

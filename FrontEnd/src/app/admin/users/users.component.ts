@@ -9,6 +9,8 @@ import { UserService } from 'src/app/service/user.service';
 })
 export class UsersComponent implements OnInit {
   users: User[] = [];
+  filter: any;
+  pageNumber: number = 1;
 
   constructor(private userService: UserService) { }
 
@@ -17,10 +19,14 @@ export class UsersComponent implements OnInit {
   }
 
   getAllUsers(){
+
     this.userService.getAllUsers()
           .subscribe(
             (data: User[]) => {
               this.users = data; 
+              this.users.forEach(user => {
+                // user.roles.name = 
+              })
               console.log(this.users);
             },
             error => {

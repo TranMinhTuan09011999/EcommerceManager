@@ -1,4 +1,4 @@
-<div class="col-md-12" style="width: 50%; margin: auto">
+<div class="col-md-12" style="width: 70%; margin: auto">
     <div class="filter">
         <div class="option-category">
             <button routerLink="../add-category" class="btn btn-info">Add Category</button>
@@ -23,8 +23,8 @@
         <tr *ngFor="let category of categories | filter: filter | paginate: {id: 'pagination', itemsPerPage: 5, currentPage: pageNumber}">
           <td>{{category.id}}</td>
           <td>{{category.categoryName}}</td>
-          <td><button class="btn btn-danger">Delete</button></td>
-          <td><button (click)="click = !click" class="btn btn-primary">Edit</button></td>
+          <td><button class="btn btn-danger" style="float: right">Delete</button></td>
+          <td><button routerLink="../edit-category/{{category.categoryName}}" class="btn btn-primary">Edit</button></td>
         </tr>
       </tbody>
     </table>  
@@ -33,6 +33,3 @@
     <pagination-controls id="pagination"
     (pageChange)="pageNumber = $event"></pagination-controls>
   </div>
-
-  <hr>
-  <app-add-category *ngIf="click"></app-add-category>

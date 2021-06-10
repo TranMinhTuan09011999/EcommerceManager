@@ -7,28 +7,42 @@
                     <span class="title"><h2>Dashboard</h2></span>
                 </a>
             </li>
-            <li>
+            <li routerLink="users">
                 <a> 
                     <span class="icon"><i class="fa fa-user" aria-hidden="true"></i></span>
-                    <span class="title">Users</span>    
+                    <span class="title">Users Management</span>    
+                </a>
+            </li>
+            <li routerLink="categories">
+                <a>
+                    <span class="icon"><i class="fa fa-object-group" aria-hidden="true"></i></span>
+                    <span class="title">Category Management</span>
                 </a>
             </li>
             <li (click)="clickCategory = !clickCategory">
                 <a>
                     <span class="icon"><i class="fa fa-list" aria-hidden="true"></i></span>
-                    <span class="title">Products</span>
+                    <span class="title">Products Management</span>
                 </a>
             </li>
-            <div *ngIf="clickCategory" class="sub-menu">
-                <li *ngFor="let category of categories" routerLink="products/{{category.categoryName}}"
-                    (click)="getCategoryName(category.categoryName)">
-                    {{category.categoryName}}
+            <div *ngIf="clickCategory" style="padding-left: 50px">
+                <li routerLink="products">
+                    <a>
+                        <span class="icon"><i class="fa fa-laptop" aria-hidden="true"></i></span>
+                        <span class="title">All Products</span>
+                    </a>
+                </li>
+                <li routerLink="add-product">
+                    <a>
+                        <span class="icon"><i class="fa fa-plus" aria-hidden="true"></i></span>
+                        <span class="title">Add New Product</span>
+                    </a>
                 </li>
             </div>
             <li>
                 <a>
                     <span class="icon"><i class="fa fa-book" aria-hidden="true"></i></span>
-                    <span class="title">Orders</span>
+                    <span class="title">Orders Management</span>
                 </a>
             </li>
             <hr>
@@ -42,7 +56,8 @@
     </div>
     
     <div class="main">
-        <router-outlet></router-outlet>
+        <router-outlet>
+        </router-outlet>
     </div>
     
 </div>

@@ -18,7 +18,6 @@ import { AdminComponent } from './admin/admin.component';
 import { AdminModule } from './admin/admin.module';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
 @NgModule({
   declarations: [
     AppComponent,

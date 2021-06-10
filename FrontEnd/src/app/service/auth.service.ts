@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { User } from '../model/user';
+import { UserLogin } from '../model/userLogin';
 import { TokenStorageService } from './token-storage.service';
 
 const AUTH_API = 'http://localhost:8182/api/auth/';
@@ -14,9 +14,9 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class AuthService {
-  user!: User;
+  user!: UserLogin;
 
-  constructor(private http: HttpClient, 
+  constructor(private http: HttpClient,
               private tokenStorageService: TokenStorageService) { }
 
   isAdmin() {

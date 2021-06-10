@@ -1,5 +1,5 @@
 * {
-    left: 0 !important;
+    max-width: 1920px !important;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -10,6 +10,7 @@ body {
 }
 
 .container-dashboard {
+    max-width: 1920px !important;
     position: relative;
     width: 100%;
 }
@@ -89,5 +90,6 @@ body {
 .main {
     position: absolute;
     width: calc(100% - 300px);
-    left: 300px;
+    left: 300px; 
+    margin: auto;
 }

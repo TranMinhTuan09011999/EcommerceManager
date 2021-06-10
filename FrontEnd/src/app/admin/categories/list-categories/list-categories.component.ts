@@ -9,9 +9,9 @@ import { UserService } from 'src/app/service/user.service';
 })
 export class ListCategoriesComponent implements OnInit {
   categories: Category[] = [];
+  thisCategory!: Category;
   pageNumber: number = 1;
   filter: any;
-  click = true;
 
   constructor(private userService: UserService) { }
 
@@ -24,6 +24,17 @@ export class ListCategoriesComponent implements OnInit {
           .subscribe(
             (data: Category[]) => {
               this.categories = data; 
+            },
+            error => {
+              console.log(error);
+            });
+  }
+
+  getCategoryByName(name: string) {
+    this.userService.getCategoryByName(name)
+          .subscribe(
+            (data: Category) => {
+              this.thisCategory = data; 
             },
             error => {
               console.log(error);

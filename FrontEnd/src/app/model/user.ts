@@ -1,3 +1,5 @@
+import { Role } from "./role";
+
 export class User {
     id!: number;
     username!: string;
@@ -7,5 +9,5 @@ export class User {
     address!: string;
     firstname!: string;
     lastname!: string;
-    roles!: string[];
+    roles!: Role;
 }
