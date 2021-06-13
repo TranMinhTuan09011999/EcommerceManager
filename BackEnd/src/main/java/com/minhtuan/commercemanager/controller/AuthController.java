@@ -76,7 +76,6 @@ public class AuthController {
     }*/
     @PostMapping("/signin")
     public ResponseEntity<?> authenticateUser(@Valid @RequestBody LoginRequest loginRequest) {
-        System.out.println("Aaa");
         Authentication authentication = authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(loginRequest.getEmail(), loginRequest.getPassword()));
 
@@ -112,6 +111,11 @@ public class AuthController {
                     .badRequest()
                     .body(new MessageResponse("Error: Email is already in use!"));
         }
+        
+        System.out.println(signUpRequest.getUsername());
+        System.out.println(signUpRequest.getEmail());
+        System.out.println(signUpRequest.getRole());
+        System.out.println(signUpRequest.getPassword());
 
         // Create new user's account
         User user = new User(signUpRequest.getUsername(),
