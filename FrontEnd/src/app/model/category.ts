@@ -1,7 +1,7 @@
-import { Product } from "./product";
+import { Product } from './product';
 
 export class Category {
     id!: number;
-    categoryName!: String;
+    categoryName!: string;
     products!: Product[];
 }

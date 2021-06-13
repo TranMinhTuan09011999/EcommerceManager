@@ -1,3 +1,4 @@
+import { Product } from './../model/product';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Cart } from '../cart';
@@ -5,6 +6,7 @@ import { ImageDetail } from '../image-detail';
 import { Product } from '../product';
 import { CartService } from '../service/cart.service';
 import { TokenStorageService } from '../service/token-storage.service';
+import { ImageDetail } from '../model/image-detail';
 import { UserService } from '../service/user.service';
 
 @Component({

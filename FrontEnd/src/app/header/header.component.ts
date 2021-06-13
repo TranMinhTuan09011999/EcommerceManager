@@ -1,3 +1,4 @@
+import { AuthService } from './../service/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { CartService } from '../service/cart.service';
 import { TokenStorageService } from '../service/token-storage.service';
