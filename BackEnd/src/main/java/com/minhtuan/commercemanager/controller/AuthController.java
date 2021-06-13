@@ -50,30 +50,6 @@ public class AuthController {
     @Autowired
     JwtUtils jwtUtils;
 
-    /*@PostMapping("/signin")
-    public ResponseEntity<?> authenticateUser(@Valid @RequestParam("email") String email, @RequestParam("password") String password) {
-        System.out.println("Aaa");
-        Authentication authentication = authenticationManager.authenticate(
-                new UsernamePasswordAuthenticationToken(email, password));
-
-        SecurityContextHolder.getContext().setAuthentication(authentication);
-        String jwt = jwtUtils.generateJwtToken(authentication);
-
-        UserDetailsImpl userDetails = (UserDetailsImpl) authentication.getPrincipal();
-        List<String> roles = userDetails.getAuthorities().stream()
-                .map(item -> item.getAuthority())
-                .collect(Collectors.toList());
-
-        return ResponseEntity.ok(new JwtResponse(jwt,
-                userDetails.getId(),
-                userDetails.getUsername(),
-                userDetails.getEmail(),
-                userDetails.getPhone(),
-                userDetails.getAddress(),
-                userDetails.getFirstname(),
-                userDetails.getLastname(),
-                roles));
-    }*/
     @PostMapping("/signin")
     public ResponseEntity<?> authenticateUser(@Valid @RequestBody LoginRequest loginRequest) {   
         Authentication authentication = authenticationManager.authenticate(
