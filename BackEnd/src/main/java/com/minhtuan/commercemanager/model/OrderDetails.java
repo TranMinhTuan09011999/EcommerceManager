@@ -9,23 +9,27 @@ import javax.persistence.*;
 @Getter
 @Setter
 @Entity
-@Table(name="cartdetail")
-public class CartDetails {
+@Table(name="orderdetails")
+public class OrderDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "cart_id") // thông qua khóa ngoại address_id
+    @JoinColumn(name = "order_id")
     @EqualsAndHashCode.Exclude
     @ToString.Exclude
-    private Cart cart;
+    private Order order;
 
     @ManyToOne
-    @JoinColumn(name = "product_id") // thông qua khóa ngoại address_id
+    @JoinColumn(name = "product_id")
     @EqualsAndHashCode.Exclude
     @ToString.Exclude
     private Product product;
 
-    private Integer amount;
+    private Long quantity;
+
+    private Double amount;
+
+    private Integer discount;
 }

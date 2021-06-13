@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Cart } from '../cart';
 import { ImageDetail } from '../image-detail';
 import { Product } from '../product';
+import { CartService } from '../service/cart.service';
+import { TokenStorageService } from '../service/token-storage.service';
 import { UserService } from '../service/user.service';
 
 @Component({
@@ -16,8 +19,9 @@ export class ProductComponent implements OnInit {
   IsPromotion = false;
   imageDetails: Array<ImageDetail> = [];
   imageId!: number;
+  token: any;
 
-  constructor(private router : Router, private route: ActivatedRoute, private userService: UserService) { }
+  constructor(private router : Router, private route: ActivatedRoute, private userService: UserService, private tokenStorageService: TokenStorageService, private cartService: CartService) { }
 
   ngOnInit(): void {
     this.productName = this.route.snapshot.params['name'];
@@ -47,5 +51,23 @@ export class ProductComponent implements OnInit {
             error => {
               console.log(error);
             });
+  }
+
+  addToCart(){
+    this.token = this.tokenStorageService.getToken();
+    const user = this.tokenStorageService.getUser();
+
+    this.cartService.addToCart(this.token, this.product.id, user.id, 1, this.product.price)
+          .subscribe(
+            (data: Cart[]) => {
+              console.log(data);
+              this.router.navigate(['/cart']).then(() => {this.reloadPage()});
+            },
+            error => {
+              console.log(error);
+            });
+  }
+  reloadPage(): void {
+    window.location.reload();
   }
 }

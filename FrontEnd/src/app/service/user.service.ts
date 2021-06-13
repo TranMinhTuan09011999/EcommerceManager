@@ -6,7 +6,7 @@ import { catchError, retry } from 'rxjs/operators';
 import { Category } from '../category';
 import { ImageDetail } from '../image-detail';
 
-const API_URL = 'http://localhost:8182/api/user/';
+const API_URL = 'http://localhost:8080/api/user/';
 
 @Injectable({
   providedIn: 'root'
