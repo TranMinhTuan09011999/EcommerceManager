@@ -23,7 +23,7 @@
                     <div class="widgets-wrap float-md-right">
                         <div class="widget-header  mr-3">
                             <a href="#" class="icon icon-sm rounded-circle border" routerLink="cart"><i class="fa fa-shopping-cart"></i></a>
-                            <span class="badge badge-pill badge-danger notify">0</span>
+                            <span class="badge badge-pill badge-danger notify">{{count}}</span>
                         </div>
                         <div class="widget-header icontext" *ngIf="!isLoggedIn()">
                             <a href="#" class="icon icon-sm rounded-circle border"><i class="fa fa-user"></i></a>
@@ -76,6 +76,9 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Contact Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" routerLink="orderlist">Your Orders</a>
                     </li>
                 </ul>
             </div>

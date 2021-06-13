@@ -53,6 +53,12 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
+    public Product getProductById(long id) {
+        Product product = productRepository.findProductById(id);
+        return product;
+    }
+
+    @Override
     public ProductDTO getProductByName(String name) {
         Product product = productRepository.findProductByName(name);
         ProductDTO dto = productConverter.toDTO(product);

@@ -14,10 +14,12 @@ import { ProductComponent } from './product/product.component';
 import { ProductlistComponent } from './productlist/productlist.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { OrderlistComponent } from './orderlist/orderlist.component';
 import { AdminComponent } from './admin/admin.component';
 import { AdminModule } from './admin/admin.module';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,6 +32,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     CheckoutComponent,
     ProductComponent,
     ProductlistComponent,
+    OrderlistComponent
     PageNotFoundComponent
   ],
   imports: [

@@ -24,94 +24,33 @@
                                 <th scope="col" class="text-right" width="200"> </th>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody *ngFor="let cart of carts">
                             <tr>
                                 <td>
                                     <figure class="itemside">
-                                        <div class="aside"><img src="assets/images/items/1.jpg" class="img-sm"></div>
-                                        <figcaption class="info">
-                                            <a href="#" class="title text-dark">Some name of item goes here nice</a>
-                                            <p class="text-muted small">Size: XL, Color: blue, <br> Brand: Gucci</p>
+                                        <div class="aside"><img src={{cart.product.image}} class="img-sm" style="width: 100px;"></div>
+                                        <figcaption class="info" style="font-weight: 700;
+                                        padding-top: 8px;">
+                                            <a href="#" class="title text-dark">{{cart.product.name}}</a>
                                         </figcaption>
                                     </figure>
                                 </td>
-                                <td>
-                                    <select class="form-control">
-                <option>1</option>
-                <option>2</option>  
-                <option>3</option>  
-                <option>4</option>  
-            </select>
+                                <td style="padding: 11px 0px 0px 6px;">
+                                    <button class="btn btn-primary btn-sm quantity" (click)="decrease(cart.id,cart.quantity)">-</button> {{cart.quantity}}
+                                    <button class="btn btn-primary btn-sm quantity" (click)="increase(cart.id,cart.quantity)">+</button>
+                                    <!--button class="btn btn-primary btn-sm" (click)="_increamentQTY(item.productId._id,1)">+</button> {{ item.quantity }}
+                                    <button class="btn btn-primary btn-sm">-</button-->
                                 </td>
                                 <td>
                                     <div class="price-wrap">
-                                        <var class="price">$1156.00</var>
-                                        <small class="text-muted"> $315.20 each </small>
+                                        <var class="price">${{cart.price}}</var>
+                                        <small class="text-muted"> ${{cart.product.price}} each </small>
                                     </div>
                                     <!-- price-wrap .// -->
                                 </td>
                                 <td class="text-right">
                                     <a data-original-title="Save to Wishlist" title="" href="" class="btn btn-light mr-2" data-toggle="tooltip"> <i class="fa fa-heart"></i></a>
-                                    <a href="" class="btn btn-light"> Remove</a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <figure class="itemside">
-                                        <div class="aside"><img src="assets/images/items/2.jpg" class="img-sm"></div>
-                                        <figcaption class="info">
-                                            <a href="#" class="title text-dark">Product name  goes here nice</a>
-                                            <p class="text-muted small">Size: XL, Color: blue, <br> Brand: Gucci</p>
-                                        </figcaption>
-                                    </figure>
-                                </td>
-                                <td>
-                                    <select class="form-control">
-                <option>1</option>
-                <option>2</option>  
-                <option>3</option>  
-                <option>4</option>  
-            </select>
-                                </td>
-                                <td>
-                                    <div class="price-wrap">
-                                        <var class="price">$149.97</var>
-                                        <small class="text-muted"> $75.00 each </small>
-                                    </div>
-                                    <!-- price-wrap .// -->
-                                </td>
-                                <td class="text-right">
-                                    <a data-original-title="Save to Wishlist" title="" href="" class="btn btn-light mr-2" data-toggle="tooltip"> <i class="fa fa-heart"></i></a>
-                                    <a href="" class="btn btn-light btn-round"> Remove</a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <figure class="itemside">
-                                        <div class="aside"><img src="assets/images/items/3.jpg" class="img-sm"></div>
-                                        <figcaption class="info">
-                                            <a href="#" class="title text-dark">Another name of some product goes just here</a>
-                                            <p class="small text-muted">Size: XL, Color: blue, Brand: Tissot</p>
-                                        </figcaption>
-                                    </figure>
-                                </td>
-                                <td>
-                                    <select class="form-control">
-                <option>1</option>
-                <option>2</option>  
-                <option>3</option>  
-            </select>
-                                </td>
-                                <td>
-                                    <div class="price-wrap">
-                                        <var class="price">$98.00</var>
-                                        <small class="text-muted"> $578.00 each</small>
-                                    </div>
-                                    <!-- price-wrap .// -->
-                                </td>
-                                <td class="text-right">
-                                    <a data-original-title="Save to Wishlist" title="" href="" class="btn btn-light mr-2" data-toggle="tooltip"> <i class="fa fa-heart"></i></a>
-                                    <a href="" class="btn btn-light btn-round"> Remove</a>
+                                    <a href="" class="btn btn-light" (click)="$event.preventDefault();deleteCartById(cart.id)"> Remove</a>
                                 </td>
                             </tr>
                         </tbody>

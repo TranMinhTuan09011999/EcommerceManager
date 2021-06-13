@@ -45,10 +45,8 @@ public class AuthController {
     @Autowired
     JwtUtils jwtUtils;
 
-    @PostMapping("/signin")
-    public ResponseEntity<?> authenticateUser(@Valid @RequestBody LoginRequest loginRequest){
-        
-        
+    @PostMapping("/signin")  
+    public ResponseEntity<?> authenticateUser(@Valid @RequestBody LoginRequest loginRequest) {
         Authentication authentication = authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(loginRequest.getEmail(), loginRequest.getPassword()));
 
@@ -71,8 +69,7 @@ public class AuthController {
     }
 
     @PostMapping("/signup")
-    public ResponseEntity<?> registerUser(@Valid @RequestBody SignupRequest signUpRequest){
-        
+    public ResponseEntity<?> registerUser(@Valid @RequestBody SignupRequest signUpRequest) {
         if (userRepository.existsByUsername(signUpRequest.getUsername())) {
             return ResponseEntity
                     .badRequest()
@@ -84,7 +81,6 @@ public class AuthController {
                     .badRequest()
                     .body(new MessageResponse("Error: Email is already in use!"));
         }
-
         System.out.println(signUpRequest.getUsername());
         System.out.println(signUpRequest.getEmail());
         System.out.println(signUpRequest.getRole());
@@ -112,7 +108,6 @@ public class AuthController {
                         Role adminRole = roleRepository.findByName(ERole.ROLE_ADMIN)
                                 .orElseThrow(() -> new RuntimeException("Error: Role is not found."));
                         roles.add(adminRole);
-
                         break;
                     default:
                         Role userRole = roleRepository.findByName(ERole.ROLE_USER)
