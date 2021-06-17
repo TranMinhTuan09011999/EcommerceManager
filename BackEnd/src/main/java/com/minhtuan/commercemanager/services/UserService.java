@@ -1,9 +1,10 @@
 package com.minhtuan.commercemanager.services;
+
 import com.minhtuan.commercemanager.model.User;
-import java.util.Optional;
+
+import java.util.List;
 
 public interface UserService {
-    Optional<User> findById(Long id);
     public List<User> getAllUser();
 //    List<User> getAllUsers();
 //    User findByUsername(String username);

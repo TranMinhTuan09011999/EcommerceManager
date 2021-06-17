@@ -12,12 +12,11 @@ import java.util.List;
 
 @Repository
 public interface ProductRepository extends CrudRepository<Product, Long> {
-
     /*@Query("SELECT a FROM Product a WHERE a.promotion > 0")
     List<Product> findByTop();*/
     List<Product> findAll();
 
     List<Product> findTop8ByPromotionGreaterThanOrderByPromotion(Integer promotion);
-    Product findProductById(Long id);
+
     Product findProductByName(String name);
 }
