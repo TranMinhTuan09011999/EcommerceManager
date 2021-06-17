@@ -7,7 +7,7 @@ import { catchError, retry } from 'rxjs/operators';
 import { ImageDetail } from '../model/image-detail';
 import { User } from '../model/user';
 
-const API_URL = 'http://localhost:8080/api/user/';
+const API_URL = 'http://localhost:8182/api/user/';
 
 @Injectable({
   providedIn: 'root'
